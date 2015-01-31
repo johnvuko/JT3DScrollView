@@ -43,11 +43,36 @@
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
     
-    [self setPreset:JT3DScrollViewNone];
+    self.effect = JT3DScrollViewEffectNone;
 }
 
-// faire une enum avec des configuration d effet par defaut, preset
-// faire un effet exposition, quand on click les views s ecartent!
+- (void)setEffect:(NSUInteger)effect
+{
+    self->_effect = effect;
+    
+    switch (effect) {
+        case JT3DScrollViewEffectCards:
+            self.angleRatio = .5;
+            
+            self.rotationX = -1.;
+            self.rotationY = -1.;
+            self.rotationZ = 0.;
+            
+            self.translateX = .25;
+            self.translateY = .25;
+            break;
+        default:
+            self.angleRatio = 0.;
+            
+            self.rotationX = 0.;
+            self.rotationY = 0.;
+            self.rotationZ = 0.;
+            
+            self.translateX = 0.;
+            self.translateY = 0.;
+            break;
+    }
+}
 
 - (void)layoutSubviews
 {
@@ -57,57 +82,26 @@
     CGFloat contentOffsetY = self.contentOffset.y;
     
     for(UIView *view in self.subviews){
+        CATransform3D t1 = view.layer.transform; // Hack for avoid visual bug
         view.layer.transform = CATransform3DIdentity;
         
         CGFloat distanceFromCenterX = view.frame.origin.x - contentOffsetX;
         CGFloat distanceFromCenterY = view.frame.origin.y - contentOffsetY;
-
-        distanceFromCenterX = distanceFromCenterX / CGRectGetWidth(self.frame) * 100.;
-        distanceFromCenterY = distanceFromCenterY / CGRectGetHeight(self.frame) * 100.;
         
-        CGFloat angle = distanceFromCenterX / 2.;
-
-        // rotation around axe x and y
-        CATransform3D t = CATransform3DMakeRotation(DEGREES_TO_RADIANS(angle), - 1., - 1., 0.);
-
-        // 1 ajoute un espace entre chaque view
-        // 2 hauteur
-        // SCREEN_WIDTH * .3 a cause de la rotation et du decalage de SCREEN_WIDTH * .1
+        view.layer.transform = t1;
+                
+        distanceFromCenterX = distanceFromCenterX * 100. / CGRectGetWidth(self.frame);
+        distanceFromCenterY = distanceFromCenterY * 100. / CGRectGetHeight(self.frame);
+        
+        CGFloat angle = distanceFromCenterX * self.angleRatio;
+        
         CGFloat offset = distanceFromCenterX;
-        view.layer.transform = CATransform3DTranslate(t, (SCREEN_WIDTH * .3) * offset / 100., fabs(offset) + distanceFromCenterY / 5., 0.);
+        CGFloat translateX = (CGRectGetWidth(self.frame) * self.translateX) * offset / 100.;
+        CGFloat translateY = (CGRectGetWidth(self.frame) * self.translateY) * abs(offset) / 100.;
+        CATransform3D t = CATransform3DMakeTranslation(translateX, translateY, 0.);
+
+        view.layer.transform = CATransform3DRotate(t, DEGREES_TO_RADIANS(angle), self.rotationX, self.rotationY, self.rotationZ);
     }
-}
-
-- (void)setPreset:(JT3DScrollViewPreset)preset
-{
-    switch (preset) {
-        case JT3DScrollViewNone:
-            break;
-    }
-}
-
-- (void)loadFirstPage
-{
-    CGRect frame = self.frame;
-    frame.origin.x = 0;
-    frame.origin.y = 0;
-    [self scrollRectToVisible:frame animated:NO];
-}
-
-- (void)loadNextPage
-{
-    CGRect frame = self.frame;
-    frame.origin.x = frame.size.width * ([self currentPage] + 1);
-    frame.origin.y = 0;
-    [self scrollRectToVisible:frame animated:YES];
-}
-
-- (void)loadPreviousPage
-{
-    CGRect frame = self.frame;
-    frame.origin.x = frame.size.width * ([self currentPage] - 1);
-    frame.origin.y = 0;
-    [self scrollRectToVisible:frame animated:YES];
 }
 
 - (NSUInteger)currentPage
@@ -115,6 +109,25 @@
     CGFloat pageWidth = self.frame.size.width;
     float fractionalPage = self.contentOffset.x / pageWidth;
     return lround(fractionalPage);
+}
+
+- (void)loadNextPage:(BOOL)animated
+{
+    [self loadPageIndex:self.currentPage + 1 animated:animated];
+}
+
+- (void)loadPreviousPage:(BOOL)animated
+{
+    [self loadPageIndex:self.currentPage - 1 animated:animated];
+}
+
+- (void)loadPageIndex:(NSUInteger)index animated:(BOOL)animated
+{
+    CGRect frame = self.frame;
+    frame.origin.x = frame.size.width * index;
+    frame.origin.y = 0;
+    
+    [self scrollRectToVisible:frame animated:animated];
 }
 
 @end

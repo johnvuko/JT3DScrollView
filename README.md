@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/cocoapods/l/JT3DScrollView.svg)
 ![Platform](https://img.shields.io/cocoapods/p/JT3DScrollView.svg)
 
-JT3DScrollView.
+JT3DScrollView is a UIScrollView with custom effects during the scroll.
 
 ## Installation
 
@@ -14,12 +14,43 @@ With [CocoaPods](http://cocoapods.org/), add this line to your Podfile.
 
 ## Screenshots
 
-![Example](./Screens/example.png "Example")
+![Example](./Screens/example.gif "Example")
 
 
 ## Usage
 
+You can use it like a classic UIScrollView.
 
+```objective-c
+#import <UIKit/UIKit.h>
+
+#import <JT3DScrollView.h>
+
+@interface ViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet JT3DScrollView *scrollView;
+
+@end
+```
+
+You just have to set the effect.
+
+```objective-c
+@implementation ViewController
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.scrollView.effect = JT3DScrollViewEffectCards;
+}
+
+@end
+
+```
+
+Currently there is only one effect `JT3DScrollViewEffectCards`.
+You can disable the effect and act like a classic UIScrollView with `JT3DScrollViewEffectNone`.
 
 ## Requirements
 

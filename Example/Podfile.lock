@@ -1,0 +1,14 @@
+PODS:
+  - JT3DScrollView (1.0.0)
+
+DEPENDENCIES:
+  - JT3DScrollView (from `..`)
+
+EXTERNAL SOURCES:
+  JT3DScrollView:
+    :path: ..
+
+SPEC CHECKSUMS:
+  JT3DScrollView: 4197c435a8107366f16ec14d78e2033169a0c162
+
+COCOAPODS: 0.35.0

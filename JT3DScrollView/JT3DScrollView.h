@@ -7,17 +7,28 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, JT3DScrollViewPreset) {
-    JT3DScrollViewNone
+typedef NS_ENUM(NSUInteger, JT3DScrollViewEffect) {
+    JT3DScrollViewEffectNone,
+    JT3DScrollViewEffectCards
 };
 
 @interface JT3DScrollView : UIScrollView
 
-- (void)setPreset:(JT3DScrollViewPreset)preset;
+@property (nonatomic) NSUInteger effect;
 
-- (void)loadFirstPage;
-- (void)loadNextPage;
-- (void)loadPreviousPage;
+@property (nonatomic) CGFloat angleRatio;
+
+@property (nonatomic) CGFloat rotationX;
+@property (nonatomic) CGFloat rotationY;
+@property (nonatomic) CGFloat rotationZ;
+
+@property (nonatomic) CGFloat translateX;
+@property (nonatomic) CGFloat translateY;
+
 - (NSUInteger)currentPage;
+
+- (void)loadNextPage:(BOOL)animated;
+- (void)loadPreviousPage:(BOOL)animated;
+- (void)loadPageIndex:(NSUInteger)index animated:(BOOL)animated;
 
 @end
