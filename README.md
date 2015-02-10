@@ -1,5 +1,6 @@
 # JT3DScrollView
 
+[![CI Status](http://img.shields.io/travis/jonathantribouharet/JT3DScrollView.svg)](https://travis-ci.org/jonathantribouharet/JT3DScrollView)
 ![Version](https://img.shields.io/cocoapods/v/JT3DScrollView.svg)
 ![License](https://img.shields.io/cocoapods/l/JT3DScrollView.svg)
 ![Platform](https://img.shields.io/cocoapods/p/JT3DScrollView.svg)
