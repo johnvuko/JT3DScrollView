@@ -50,9 +50,18 @@ You just have to set the effect.
 
 ```
 
-You can disable the effect and act like a classic `UIScrollView` by setting the effect 
-`JT3DScrollViewEffectNone`.
+You can disable the effect and act like a classic `UIScrollView` by setting `effect` to `JT3DScrollViewEffectNone`.
 
+Effects are just preset for some properties used for the animations, you can adjust all effects with:
+
+- `angleRatio`
+- `rotationX`
+- `rotationY`
+- `rotationZ`
+- `translateX`
+- `translateY`
+
+All this properties are relative to the position X of the subview.
 
 ## Requirements
 

@@ -118,12 +118,12 @@
         view.layer.transform = CATransform3DIdentity;
         
         CGFloat distanceFromCenterX = view.frame.origin.x - contentOffsetX;
-        CGFloat distanceFromCenterY = view.frame.origin.y - contentOffsetY;
+//        CGFloat distanceFromCenterY = view.frame.origin.y - contentOffsetY;
         
         view.layer.transform = t1;
                 
         distanceFromCenterX = distanceFromCenterX * 100. / CGRectGetWidth(self.frame);
-        distanceFromCenterY = distanceFromCenterY * 100. / CGRectGetHeight(self.frame);
+//        distanceFromCenterY = distanceFromCenterY * 100. / CGRectGetHeight(self.frame);
         
         CGFloat angle = distanceFromCenterX * self.angleRatio;
         
