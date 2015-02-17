@@ -9,12 +9,15 @@
 
 typedef NS_ENUM(NSUInteger, JT3DScrollViewEffect) {
     JT3DScrollViewEffectNone,
+    JT3DScrollViewEffectTranslation,
+    JT3DScrollViewEffectDepth,
+    JT3DScrollViewEffectCarousel,
     JT3DScrollViewEffectCards
 };
 
 @interface JT3DScrollView : UIScrollView
 
-@property (nonatomic) NSUInteger effect;
+@property (nonatomic) JT3DScrollViewEffect effect;
 
 @property (nonatomic) CGFloat angleRatio;
 

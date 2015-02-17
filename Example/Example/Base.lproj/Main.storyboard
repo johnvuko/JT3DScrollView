@@ -17,17 +17,17 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eA-6K-WkJ" customClass="JT3DScrollView">
-                                <rect key="frame" x="20" y="40" width="560" height="480"/>
+                                <rect key="frame" x="40" y="80" width="520" height="440"/>
                                 <color key="backgroundColor" red="0.21176470588235294" green="0.32941176470588235" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGh-GG-gK5">
-                                <rect key="frame" x="20" y="540" width="560" height="40"/>
-                                <color key="backgroundColor" red="0.95686274509803693" green="0.91764705882352937" blue="0.46885450932017525" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGh-GG-gK5">
+                                <rect key="frame" x="40" y="540" width="520" height="40"/>
+                                <color key="backgroundColor" red="0.12941176470588234" green="0.61960784313725492" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jsV-py-cab"/>
                                 </constraints>
                                 <state key="normal" title="NEXT">
-                                    <color key="titleColor" red="0.21176470589999999" green="0.3294117647" blue="0.43529411759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -35,7 +35,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgq-k9-Wfo">
-                                <rect key="frame" x="640" y="540" width="560" height="40"/>
+                                <rect key="frame" x="680" y="540" width="520" height="40"/>
                                 <color key="backgroundColor" red="0.3411764705882353" green="0.73725490196078436" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bDl-tD-nAY"/>
@@ -48,20 +48,39 @@
                                     <action selector="loadPreviousPage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HrA-nQ-v3P"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1it-iz-B0h">
+                                <rect key="frame" x="10" y="22" width="580" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="h1L-BJ-m3D"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Cards"/>
+                                    <segment title="Carousel"/>
+                                    <segment title="Depth"/>
+                                    <segment title="Translation"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="didChangeMode:" destination="vXZ-lx-hvc" eventType="valueChanged" id="R2P-zL-M1d"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470588235294" green="0.32941176470588235" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1it-iz-B0h" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="22" id="4kd-vq-1S0"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Xgq-k9-Wfo" secondAttribute="bottom" constant="20" id="7j1-Si-zs6"/>
                             <constraint firstItem="Xgq-k9-Wfo" firstAttribute="width" secondItem="MGh-GG-gK5" secondAttribute="width" id="9Xn-rE-lR3"/>
-                            <constraint firstItem="6eA-6K-WkJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="40" id="DXx-wZ-Lq7"/>
+                            <constraint firstItem="1it-iz-B0h" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="10" id="CXb-lc-SQ2"/>
+                            <constraint firstItem="6eA-6K-WkJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="80" id="DXx-wZ-Lq7"/>
                             <constraint firstAttribute="trailing" secondItem="MGh-GG-gK5" secondAttribute="trailing" constant="20" id="Edl-k2-I2B"/>
                             <constraint firstItem="Xgq-k9-Wfo" firstAttribute="leading" secondItem="MGh-GG-gK5" secondAttribute="leading" constant="40" id="FZK-Oe-zQB"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="MGh-GG-gK5" secondAttribute="bottom" constant="20" id="N5Y-ue-0Ph"/>
-                            <constraint firstAttribute="trailing" secondItem="6eA-6K-WkJ" secondAttribute="trailing" constant="20" id="NfC-4N-O1K"/>
-                            <constraint firstItem="6eA-6K-WkJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="R3Y-bL-fFO"/>
+                            <constraint firstAttribute="trailing" secondItem="6eA-6K-WkJ" secondAttribute="trailing" constant="40" id="NfC-4N-O1K"/>
+                            <constraint firstItem="6eA-6K-WkJ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="40" id="R3Y-bL-fFO"/>
                             <constraint firstItem="Xgq-k9-Wfo" firstAttribute="trailing" secondItem="MGh-GG-gK5" secondAttribute="trailing" constant="40" id="c2q-Bz-M4d"/>
-                            <constraint firstItem="Xgq-k9-Wfo" firstAttribute="leading" secondItem="MGh-GG-gK5" secondAttribute="trailing" constant="60" id="cBS-Qa-zcd"/>
-                            <constraint firstItem="MGh-GG-gK5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="crC-qE-tgT"/>
+                            <constraint firstItem="Xgq-k9-Wfo" firstAttribute="leading" secondItem="MGh-GG-gK5" secondAttribute="trailing" constant="120" id="cBS-Qa-zcd"/>
+                            <constraint firstItem="MGh-GG-gK5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="40" id="crC-qE-tgT"/>
+                            <constraint firstAttribute="trailing" secondItem="1it-iz-B0h" secondAttribute="trailing" constant="10" id="eck-JR-kD0"/>
                             <constraint firstItem="6eA-6K-WkJ" firstAttribute="width" secondItem="MGh-GG-gK5" secondAttribute="width" id="gNz-6h-2jh"/>
                             <constraint firstItem="Xgq-k9-Wfo" firstAttribute="trailing" secondItem="MGh-GG-gK5" secondAttribute="trailing" constant="40" id="iLE-Ah-4aj"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6eA-6K-WkJ" secondAttribute="bottom" constant="80" id="ukN-EF-KXd"/>

@@ -46,11 +46,41 @@
     self.effect = JT3DScrollViewEffectNone;
 }
 
-- (void)setEffect:(NSUInteger)effect
+- (void)setEffect:(JT3DScrollViewEffect)effect
 {
     self->_effect = effect;
     
     switch (effect) {
+        case JT3DScrollViewEffectTranslation:
+            self.angleRatio = 0.;
+            
+            self.rotationX = 0.;
+            self.rotationY = 0.;
+            self.rotationZ = 0.;
+            
+            self.translateX = .25;
+            self.translateY = .25;
+            break;
+        case JT3DScrollViewEffectDepth:
+            self.angleRatio = .5;
+            
+            self.rotationX = -1.;
+            self.rotationY = 0.;
+            self.rotationZ = 0.;
+            
+            self.translateX = .25;
+            self.translateY = 0.;
+            break;
+        case JT3DScrollViewEffectCarousel:
+            self.angleRatio = .5;
+            
+            self.rotationX = -1.;
+            self.rotationY = 0.;
+            self.rotationZ = 0.;
+            
+            self.translateX = .25;
+            self.translateY = .25;
+            break;
         case JT3DScrollViewEffectCards:
             self.angleRatio = .5;
             
@@ -72,6 +102,8 @@
             self.translateY = 0.;
             break;
     }
+    
+    [self.superview layoutIfNeeded];
 }
 
 - (void)layoutSubviews

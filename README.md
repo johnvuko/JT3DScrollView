@@ -20,7 +20,7 @@ With [CocoaPods](http://cocoapods.org/), add this line to your Podfile.
 
 ## Usage
 
-You can use it like a classic UIScrollView.
+You can use it like a classic UIScrollView, the `pagingEnabled` is set to `YES` by default and `clipsToBounds` is set to `NO`.
 
 ```objective-c
 #import <UIKit/UIKit.h>
@@ -50,8 +50,9 @@ You just have to set the effect.
 
 ```
 
-Currently there is only one effect `JT3DScrollViewEffectCards`.
-You can disable the effect and act like a classic UIScrollView with `JT3DScrollViewEffectNone`.
+You can disable the effect and act like a classic `UIScrollView` by setting the effect 
+`JT3DScrollViewEffectNone`.
+
 
 ## Requirements
 

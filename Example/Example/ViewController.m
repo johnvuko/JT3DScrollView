@@ -13,11 +13,6 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -26,16 +21,17 @@
     
     self.scrollView.delegate = self; // Use only for animate nextButton and previousButton
     
-    [self createCardWithColor:[UIColor orangeColor]];
-    [self createCardWithColor:[UIColor orangeColor]];
-    [self createCardWithColor:[UIColor orangeColor]];
-    [self createCardWithColor:[UIColor orangeColor]];
+    [self createCardWithColor];
+    [self createCardWithColor];
+    [self createCardWithColor];
+    [self createCardWithColor];
     
-    self.nextButton.layer.cornerRadius = 3.;
-    self.previousButton.layer.cornerRadius = 3.;
+    self.nextButton.backgroundColor = [UIColor colorWithRed:33/255. green:158/255. blue:238/255. alpha:1.];
+    self.nextButton.layer.cornerRadius = 5.;
+    self.previousButton.layer.cornerRadius = 5.;
 }
 
-- (void)createCardWithColor:(UIColor *)color
+- (void)createCardWithColor
 {
     CGFloat width = CGRectGetWidth(self.scrollView.frame);
     CGFloat height = CGRectGetHeight(self.scrollView.frame);
@@ -43,13 +39,41 @@
     CGFloat x = self.scrollView.subviews.count * width;
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(x, 0, width, height)];
-    view.backgroundColor = color;
+    view.backgroundColor = [UIColor colorWithRed:33/255. green:158/255. blue:238/255. alpha:1.];
     
-    view.layer.cornerRadius = 3.;
+    view.layer.cornerRadius = 8.;
     
     [self.scrollView addSubview:view];
     self.scrollView.contentSize = CGSizeMake(x + width, height);
 }
+
+#pragma mark - SegmentControl
+
+- (IBAction)didChangeMode:(UISegmentedControl *)sender
+{
+    JT3DScrollViewEffect effect;
+    switch (sender.selectedSegmentIndex) {
+        case 0:
+            effect = JT3DScrollViewEffectCards;
+            break;
+        case 1:
+            effect = JT3DScrollViewEffectCarousel;
+            break;
+        case 2:
+            effect = JT3DScrollViewEffectDepth;
+            break;
+        case 3:
+            effect = JT3DScrollViewEffectTranslation;
+            break;
+            
+        default:
+            break;
+    }
+    
+    self.scrollView.effect = effect;
+}
+
+#pragma mark - Next / Previous buttons
 
 - (IBAction)loadNextPage:(id)sender
 {
@@ -85,7 +109,7 @@
 {
     [UIView animateWithDuration:.3
                      animations:^{
-                         self.leftNextButtonConstraint.constant = 20;
+                         self.leftNextButtonConstraint.constant = 40;
                          [self.view layoutIfNeeded];
                      }];
 }
