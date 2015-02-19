@@ -103,7 +103,7 @@
             break;
     }
     
-    [self.superview layoutIfNeeded];
+    [self setNeedsDisplay];
 }
 
 - (void)layoutSubviews
