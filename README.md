@@ -75,3 +75,7 @@ All this properties are relative to the position X of the subview.
 ## License
 
 JT3DScrollView is released under the MIT license. See the LICENSE file for more info.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jonathantribouharet/jt3dscrollview/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
