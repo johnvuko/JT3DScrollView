@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JT3DScrollView"
-  s.version      = "1.0.3"
+  s.version      = "1.0.4"
   s.summary      = "ScrollView with custom effects during the scroll."
   s.homepage     = "https://github.com/jonathantribouharet/JT3DScrollView"
   s.license      = { :type => 'MIT' }

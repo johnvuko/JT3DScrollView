@@ -129,7 +129,7 @@
         
         CGFloat offset = distanceFromCenterX;
         CGFloat translateX = (CGRectGetWidth(self.frame) * self.translateX) * offset / 100.;
-        CGFloat translateY = (CGRectGetWidth(self.frame) * self.translateY) * abs(offset) / 100.;
+        CGFloat translateY = (CGRectGetWidth(self.frame) * self.translateY) * fabs(offset) / 100.;
         CATransform3D t = CATransform3DMakeTranslation(translateX, translateY, 0.);
 
         view.layer.transform = CATransform3DRotate(t, DEGREES_TO_RADIANS(angle), self.rotationX, self.rotationY, self.rotationZ);
