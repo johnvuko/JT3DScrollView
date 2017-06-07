@@ -1,55 +1,60 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eA-6K-WkJ" customClass="JT3DScrollView">
-                                <rect key="frame" x="40" y="80" width="520" height="440"/>
-                                <color key="backgroundColor" red="0.21176470588235294" green="0.32941176470588235" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eA-6K-WkJ" customClass="JT3DScrollView" customModule="JT3DScrollView">
+                                <rect key="frame" x="40" y="80" width="295" height="507"/>
+                                <color key="backgroundColor" red="0.16264849901199341" green="0.25800216197967529" blue="0.35957515239715576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGh-GG-gK5">
-                                <rect key="frame" x="40" y="540" width="520" height="40"/>
-                                <color key="backgroundColor" red="0.12941176470588234" green="0.61960784313725492" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="40" y="607" width="295" height="40"/>
+                                <color key="backgroundColor" red="0.12096373736858368" green="0.5409398078918457" blue="0.91531813144683838" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jsV-py-cab"/>
                                 </constraints>
                                 <state key="normal" title="NEXT">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loadNextPage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="fx1-aM-hRB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgq-k9-Wfo">
-                                <rect key="frame" x="680" y="540" width="520" height="40"/>
-                                <color key="backgroundColor" red="0.3411764705882353" green="0.73725490196078436" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="455" y="607" width="295" height="40"/>
+                                <color key="backgroundColor" red="0.2875443696975708" green="0.69493377208709717" blue="0.47139936685562134" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bDl-tD-nAY"/>
                                 </constraints>
                                 <state key="normal" title="PREVIOUS">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loadPreviousPage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HrA-nQ-v3P"/>
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1it-iz-B0h">
-                                <rect key="frame" x="10" y="22" width="580" height="29"/>
+                                <rect key="frame" x="10" y="22" width="355" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="h1L-BJ-m3D"/>
                                 </constraints>
@@ -59,13 +64,13 @@
                                     <segment title="Depth"/>
                                     <segment title="Translation"/>
                                 </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="didChangeMode:" destination="vXZ-lx-hvc" eventType="valueChanged" id="R2P-zL-M1d"/>
+                                    <action selector="didChangeMode:" destination="vXZ-lx-hvc" eventType="valueChanged" id="qqB-uj-Yns"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" red="0.21176470588235294" green="0.32941176470588235" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16264849901199341" green="0.25800216197967529" blue="0.35957515239715576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1it-iz-B0h" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" constant="22" id="4kd-vq-1S0"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Xgq-k9-Wfo" secondAttribute="bottom" constant="20" id="7j1-Si-zs6"/>
@@ -95,10 +100,10 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="leftNextButtonConstraint" destination="crC-qE-tgT" id="rRe-Wt-Kef"/>
-                        <outlet property="nextButton" destination="MGh-GG-gK5" id="jB5-eO-8z5"/>
-                        <outlet property="previousButton" destination="Xgq-k9-Wfo" id="Ywd-zn-C2S"/>
-                        <outlet property="scrollView" destination="6eA-6K-WkJ" id="sY4-8Z-7lL"/>
+                        <outlet property="leftNextButtonConstraint" destination="crC-qE-tgT" id="EEA-Gf-1Nl"/>
+                        <outlet property="nextButton" destination="MGh-GG-gK5" id="2M1-N1-rDk"/>
+                        <outlet property="previousButton" destination="Xgq-k9-Wfo" id="Ay4-52-zAg"/>
+                        <outlet property="scrollView" destination="6eA-6K-WkJ" id="Qhs-9X-IQj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -1,5 +1,5 @@
 PODS:
-  - JT3DScrollView (1.0.0)
+  - JT3DScrollView (2.0.0)
 
 DEPENDENCIES:
   - JT3DScrollView (from `..`)
@@ -9,6 +9,8 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  JT3DScrollView: ea4938c9d3c029e46eb5265a359dfba2ea5099ac
+  JT3DScrollView: 43e3e1f0196b8a42bab9aac8779f288ea4318a58
 
-COCOAPODS: 0.35.0
+PODFILE CHECKSUM: 8a019c83a5f75421bd91a429b673b3eb18cb2b42
+
+COCOAPODS: 1.2.1

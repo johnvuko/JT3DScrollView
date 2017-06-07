@@ -11,7 +11,7 @@ JT3DScrollView is a UIScrollView with custom effects during the scroll.
 
 With [CocoaPods](http://cocoapods.org/), add this line to your Podfile.
 
-    pod 'JT3DScrollView', '~> 1.0'
+    pod 'JT3DScrollView', '~> 2.0'
 
 ## Screenshots
 
@@ -20,37 +20,24 @@ With [CocoaPods](http://cocoapods.org/), add this line to your Podfile.
 
 ## Usage
 
-You can use it like a classic UIScrollView, the `pagingEnabled` is set to `YES` by default and `clipsToBounds` is set to `NO`.
+You can use it like a classic UIScrollView, the `isPagingEnabled` is set to `true` by default and `clipsToBounds` is set to `false`.
 
-```objective-c
-#import <UIKit/UIKit.h>
+```swift
+import UIKit
+import JT3DScrollView
 
-#import <JT3DScrollView.h>
+class ViewController: UIViewController {
 
-@interface ViewController : UIViewController
+    @IBOutlet weak var scrollView: JT3DScrollView?
 
-@property (weak, nonatomic) IBOutlet JT3DScrollView *scrollView;
-
-@end
-```
-
-You just have to set the effect.
-
-```objective-c
-@implementation ViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    self.scrollView.effect = JT3DScrollViewEffectCards;
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        scrollView?.effect = .cards
+    }
 }
-
-@end
-
 ```
 
-You can disable the effect and act like a classic `UIScrollView` by setting `effect` to `JT3DScrollViewEffectNone`.
+You can disable the effect and act like a classic `UIScrollView` by setting `effect` to `.none`.
 
 Effects are just preset for some properties used for the animations, you can adjust all effects with:
 
@@ -65,8 +52,8 @@ All this properties are relative to the position X of the subview.
 
 ## Requirements
 
-- iOS 7 or higher
-- Automatic Reference Counting (ARC)
+- iOS 8 or higher
+- Swift 3.0
 
 ## Author
 
